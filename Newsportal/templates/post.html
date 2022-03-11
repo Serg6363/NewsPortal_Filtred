@@ -1,0 +1,15 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %}
+Products
+{% endblock title %}
+
+{% block content %}
+<h1> {{ post.title | censor:'булок' }} </h1>
+    <hr>
+{{ post.text | censor:'булок' }}
+    <hr>
+{{ post.time_write | date:'d-M-Y h:i' }}
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+Posts
+{% endblock title %}
+
+{% block content %}
+    <h1>Все новости</h1>
+    <hr>
+    {% if posts %}
+        <table>
+            <tr>
+                <td width="200">
+                    <em><strong> Дата публикации </strong></em>
+                </td>
+                <td width="200">
+                    <em><strong> Заголовок </strong></em>
+                </td>
+                <td>
+                    <em><strong> Превью </strong></em>
+                </td>
+            </tr>
+        {% for post in posts %}
+            <tr>
+                <td>
+                    {{ post.time_write }}
+                </td>
+                <td>
+                    {{ post.title }}
+                </td>
+                <td>
+                    {{ post.text | truncatechars:51 }}
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        <h2>Новостей нет!</h2>
+    {% endif %}
+{% endblock content %}
